@@ -1,7 +1,19 @@
-import React from "react"
+import React, { useEffect } from "react"
 
 const Show = ({ show }) => {
-  return <div> {show ? <h2>Showing</h2> : <h2>Not showing</h2>}</div>
+  const listenClicks = e => {
+    console.log({ x: e.x, y: e.y })
+  }
+
+  useEffect(() => {
+    document.addEventListener("click", listenClicks)
+
+    return () => {
+      document.removeEventListener("click", listenClicks)
+    }
+  }, [])
+
+  return <h2>Showing importance of removing eventListener</h2>
 }
 
 export default Show

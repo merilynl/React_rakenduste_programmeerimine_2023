@@ -24,16 +24,8 @@ const MyForm = () => {
   //   console.log("No dependancy array")
   // })
 
-  const listenClicks = e => {
-    console.log({ x: e.x, y: e.y })
-  }
-
   useEffect(() => {
     console.log("Empty dependancy array")
-
-    document.addEventListener("click", listenClicks)
-
-    return () => document.removeEventListener("click", listenClicks)
   }, [])
 
   // useEffect(() => {
