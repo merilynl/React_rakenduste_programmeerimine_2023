@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
+import Toggle from "./components/Toggle"
+import Show from "./components/Show"
+import Maths from "./components/Maths"
+import MyForm from "./components/MyForm"
+import PropDrilling from "./components/PropDrilling"
+import Context from "./components/Context"
+import Fetching from "./components/Fetching"
+import "./App.css"
 
 function App() {
+  const [show, setShow] = useState(true)
+  const toggleShow = () => setShow(previousShow => !previousShow)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Container">
+      <h1>Merilyn</h1>
+      <Fetching />
+      <PropDrilling />
+      <Context />
+      <MyForm />
+      <Maths />
+      <Show show={show} />
+      <Toggle toggleShow={toggleShow} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
