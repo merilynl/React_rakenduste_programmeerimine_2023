@@ -4,6 +4,8 @@ import { Outlet } from "react-router-dom"
 import Header from "./layout/Header"
 import { useLocation } from "react-router-dom"
 import { Typography } from "@mui/material"
+import List from "./components/List"
+import FeedbackForm from "./components/FeedbackForm"
 import "./App.css"
 
 const theme = createTheme({
@@ -16,6 +18,7 @@ const theme = createTheme({
 })
 
 function App() {
+  const myHobbies = ["Reading", "Gardening", "Cooking", "Hiking"]
   let location = useLocation()
   return (
     <ThemeProvider theme={theme}>
@@ -25,11 +28,15 @@ function App() {
           <Typography
             variant="h4"
             sx={{ marginLeft: 10, marginTop: 5 }}
+            align="center"
           >
             Merilyn Hunt
           </Typography>
         )}
         <Outlet />
+        <List hobbies={myHobbies} />
+
+        <FeedbackForm />
       </Layout>
     </ThemeProvider>
   )
